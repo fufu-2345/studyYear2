@@ -1,0 +1,359 @@
+class week6{
+    public static boolean no23(int[] arr){
+        int n = arr.length;
+        for(int i = 0;i<n;i++){
+            if(arr[i] == 2 || arr[i] == 3){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static int[] makeLast(int[] arr){
+        int n = arr.length;
+        int[] ret = new int[2*n];
+        ret[2*n -1] = arr[n-1];
+        return ret;
+    }
+    public static boolean double23(int[] arr){
+        int n = arr.length;
+        if(n != 2){
+            return false;
+        }
+
+        if(arr[0] == arr[1]){
+            if(arr[0] == 2 || arr[0] == 3){
+                return true;
+            }
+        }
+        return false;
+    }
+    public static int[] fix23(int[] arr){
+        int n = arr.length;
+        for(int i = 0;i<n-1;i++){
+            if(arr[i] == 2 && arr[i+1] == 3){
+                arr[i+1] = 0;
+            }
+        }
+        return arr;
+    }
+    public static int start1(int[][] arr){
+        int n = arr.length;
+        int count = 0;
+        for(int i = 0;i<n;i++)
+        {
+            int m = arr[i].length;
+            if(m == 0){
+                continue;
+            }
+            if (arr[i][0] == 1) {
+                count++;
+            }
+        }
+        return count;
+    }
+    public static int[] biggerTwo(int[][] arr){
+        int n = arr.length;
+        int index = 0;
+        int max= 0;
+        for(int i =0;i<n;i++){
+            int sum = 0;
+            int m = arr[i].length;
+            for(int j = 0;j<m;j++){
+                sum += arr[i][j];
+            }
+            if(sum > max){
+                max = sum;
+                index = i;
+            }
+        }
+        return arr[index];
+    }
+    public static int[] makeMiddle(int[] arr){
+        int n = arr.length;
+        int[] ret = new int[2];
+        ret[0] = arr[n/2 -1];
+        ret[1] = arr[n/2];
+        return ret;
+    }
+}
+
+class week7{
+    public static int s7(int n,int[] arr){
+        int min = arr[0];
+        int count = 0;
+        for(int i = 0;i<n;i++){
+            if(arr[i] < min){
+                min = arr[i];
+            }
+        }
+        while (true) {
+            count = 0;
+            if(min == 1){
+                return min;
+            }
+            for(int i =0;i<n;i++){
+                if(arr[i] % min == 0){
+                    count++;
+                }
+            }
+            if(count >= n){
+                break;
+            }
+            min--;
+        }
+        return min;
+    }
+    public static int s8(int n,int[] arr){
+        int max = arr[0];
+        int count = 0;
+        for(int i = 0;i<n;i++){
+            if(arr[i] > max){
+                max = arr[i];
+            }
+        }
+        while (true) {
+            count = 0 ;
+            for(int i =0;i<n;i++){
+                if(max % arr[i] == 0){
+                    count++;
+                }
+            }
+            if(count >= n){
+                break;
+            }
+            max++;
+        }
+        return max;
+    }
+    public class athelete{
+        public int id;
+        public float time;
+    }
+    public static void s9(int n,athelete[] arr){
+        for(int i = 0;i<n;i++){
+            for(int j = 0;j<n;j++){
+                if(arr[i].time > arr[j].time){
+                    athelete temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+
+        for(int i = 0;i<3;i++){
+            if(arr[i].time <= 20){
+                System.err.println(arr[i].id);
+            }
+        }
+    }
+    public static double s10(float x, int n){
+        double sum = 0;
+        for(int i =0;i<n;i++){
+            double temp = Math.pow(x, i)/i;
+            sum += temp;
+        }
+        return sum;
+    }
+    public static void stringTimes(String tex,int n){
+        for(int i = 0;i<n;i++){
+            System.out.printf("%s", tex);
+        }
+        System.err.println();
+    }
+    public static void frontTimes(String tex,int n) {
+        StringBuilder digits = new StringBuilder();
+        
+            for (char ch : tex.toCharArray()) {
+                if (Character.isDigit(ch)) {
+                    digits.append(ch);
+                }
+                if (digits.length() == 3) {
+                    break;
+                }
+            }
+        
+        for(int i = 0;i<n;i++){
+            System.out.printf("%s",digits.toString());
+        }
+    }
+    
+}
+
+class week10{
+    public static int Fibs(int a){
+        if(a == 1){
+            return 1;
+        }
+        if(a == 2){
+            return 2;
+        }
+        return(Fibs(a-1)+Fibs(a-2));
+    }
+    public static int s1(int a,int b){
+        int ans = 0;
+        int i =1;
+        int count = 0;
+        while (ans <= b) {
+            ans = Fibs(i++);
+            if(ans >= a && ans <= b){
+                count++;
+            }
+        }
+        return count;
+    }
+    public static int F(int a){
+        if(a == 0){
+            return 0;
+        }
+        if(a%10 >0){
+            return a%10;
+        }
+        return F(a/10);
+    }
+    public static int s2(int p,int q){
+        int sum = 0;
+        for(int i =p;i<=q;i++){
+            sum += F(i);
+        }
+        return sum;
+    }
+}
+
+class week11{
+    public static int[] s7(int[] arr){
+        int n = arr.length;
+        int temp = arr[0];
+        arr[0] = arr[n-1];
+        arr[n-1] = temp;
+        return arr;
+    }
+    public static int s8(int n, int[] arr){
+        for(int i =0;i<n;i++){
+            for(int j = i;j<n;j++){
+                if(arr[i] < arr[j]){
+                    int temp =arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        int negativecount = 0;
+        for(int i = n-1;i >= 0; i--){
+            if(arr[i] > 0){
+                break;
+            }else{
+                negativecount++;
+            }
+        }
+        if(negativecount % 2  == 1){
+            negativecount--;
+        }
+        int max = 1;
+        for(int i =0;i<n;i++){
+            if(arr[i] <= 0){
+                break;
+            }else{
+                max *= arr[i];
+            }
+        }
+        for(int i = n-negativecount;i<n;i++){
+            max *= arr[i];
+        }
+        return max;
+    }
+    public static boolean checkLen(int n,int[] arr,int num,int length){
+        int count = 0;
+        boolean[] used = new boolean[n];
+        for(int i=0;i<n;i++){
+            used[i] = false;
+        }
+        int i = n-1;
+        while (i >= 0) {
+            int sum =arr[i];
+            boolean[] usedArr = new boolean[n];
+            for(int m=0;m<n;m++){
+                usedArr[m] = false;
+            }
+
+            if(used[i]){
+                    i--;
+                    continue;
+            }else{
+                usedArr[i] = true;
+                for(int j=0;j<n;j++){
+                    if(used[j]){
+                        continue;
+                    }
+                    sum += arr[j];
+                    usedArr[j] = true;
+                    if(sum == length){
+                        for(int k=0;k<n;k++){
+                            if(usedArr[k] == true){
+                                used[k] = true;
+                            }
+                        }
+                        count++;
+                        break;
+                    }else if(sum > length){
+                        break;
+                    }
+                }
+            }
+            i--;
+        }
+        if(count == num){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public static int s9(int n,int[] arr){
+        for(int i=0;i<n;i++){
+            for(int j = i;j<n;j++){
+                if(arr[i] > arr[j]){
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        int sum =0;
+        for(int i=0;i<n;i++){
+            sum += arr[i];
+        }
+        int[] factor = new int[sum];
+        int index=0;
+        int temp =1;
+        while (temp != sum) {
+            if(sum%temp == 0){
+                factor[index++] = temp;
+            }
+            temp++;
+        }
+        int startIndex = 0;
+        for(int i=0;i<n;i++){
+            if(factor[i] > arr[n-1]){
+                startIndex = i;
+                break;
+            }
+        }
+        boolean lastCheck = false;
+        while (!lastCheck) {
+            temp = factor[startIndex];
+            lastCheck = checkLen(n, arr, sum/temp, temp);
+            startIndex++;
+            if(startIndex >= index){
+                break;
+            }
+        }
+        return temp;
+    }
+}
+
+class runtest{
+    public static void main(String[] args) {
+        int n = 4;
+        int[] arr = {1,3,5,7};
+        System.err.println(week11.s9(n, arr));
+    }
+}

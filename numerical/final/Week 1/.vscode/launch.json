@@ -1,0 +1,36 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Conjugate",
+            "request": "launch",
+            "mainClass": "Conjugate",
+            "projectName": "Week 1_fb638a0e"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "GaussSeidel",
+            "request": "launch",
+            "mainClass": "GaussSeidel",
+            "projectName": "Week 1_fb638a0e"
+        },
+        {
+            "type": "java",
+            "name": "jacobi",
+            "request": "launch",
+            "mainClass": "jacobi",
+            "projectName": "Week 1_fb638a0e"
+        }
+    ]
+        
+}
